@@ -75,9 +75,13 @@ form.addEventListener("submit", e => {
 
     // emptyCheckBoxes(inputListField);
     // For Empty Checkboxes
-    if (emptyCheckBoxes(inputListField)) {
-      const errMsg = `Error: ${inputListField.title}`;
-      console.log("hi");
+    // if (photoCheckBoxes(inputListField)) {
+    //   const errMsg = `Error: ${inputListField.title}`;
+    //   console.log("hi");
+    //   makeError(inputListField, errMsg);
+    // }
+    if (photoCheckBoxes(inputListField)) {
+      const errMsg = "test";
       makeError(inputListField, errMsg);
     }
   }
@@ -170,20 +174,18 @@ let detectPhoneError = inputListField => {
   }
 };
 
-let emptyCheckBoxes = inputListField => {
-  let checkBoxes = inputListField;
-  let emergencyBox = document.querySelectorAll("input[type=checkbox]");
-  let photoCheck = document.getElementsByClassName("photoCheck");
+let photoCheckBoxes = inputListField => {
+  const box = inputListField;
+  const checked = box.checked;
+  const photoBox = document.querySelectorAll("input[type=checkbox]");
+  const photoClass = inputListField.classList.contains("photoClass");
+  const photoBoxYes = photoBox[2];
+  const photoBoxNo = photoBox[3];
 
-  // console.log("[type=checkbox] check:", emergencyBox);
-  // console.log("photoCheck Elements", photoCheck);
+  console.log(photoClass)
 
-  if (
-    checkBoxes.checked
-  ) {
-    const errMsg = 'test'
-    // console.log('hi');
-    makeError(inputListField, errMsg)
+  if (checked === photoClass && photoBoxYes.checked === false && photoBoxNo.checked === false) {
+    return true;
   }
 };
 
