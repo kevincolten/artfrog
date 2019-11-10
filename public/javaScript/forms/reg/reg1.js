@@ -73,9 +73,12 @@ form.addEventListener("submit", e => {
       makeError(inputListField, errMsg);
     }
 
-    // For Checkboxes
-    // if (inputListField.type === "checkbox") {
-    //   // console.log("hi");
+    emptyCheckBoxes(inputListField)
+    // For Empty Checkboxes
+    // if (emptyCheckBoxes(inputListField)) {
+    //   const errMsg = `Error: ${inputListField.title}`;
+    //   console.log("hi");
+    //   makeError(inputListField, errMsg);
     // }
   }
 
@@ -87,7 +90,7 @@ form.addEventListener("submit", e => {
   // If Error Stop Submit page, call Display Errors
   if (errorSwitch.length > 0) {
     e.preventDefault();
-    // TEMPORARY call Position for updated info *will call afer } else { once form completed
+    // TEMPORARY call Position for updated info *will call afer } else { once form code completed
     handleSubmit();
   }
 });
@@ -167,14 +170,22 @@ let detectPhoneError = inputListField => {
   }
 };
 
-let emptyCheckBoxes = () => {
-  let emergencyBoxes = document.querySelectorAll("input[type=checkbox]");
-  // console.log(emergencyBoxes[0], emergencyBoxes[1]);
+let emptyCheckBoxes = inputListField => {
+  let emergencyBox = document.querySelectorAll("input[type=checkbox]");
+  let photoCheck = inputListField.classList.contains("photoCheck");
 
-  if (emergencyBoxes[0] === emergencyBoxes[1]) {
-    // For Checkbox Not Empty make an Error
+  console.log('[type=checkbox] check:', emergencyBox)
+  console.log('class.contains photoCheck: ' , photoCheck)
+  if (
+    inputListField.type === "checkbox" &&
+    inputListField.name === 'photoWaiver' &&
+    emergencyBox[0] === emergencyBox[1]
+  ) {
+    return true;
   }
 };
+
+
 
 // Make the error show under the fields.
 let makeError = (inputListField, errMsg) => {

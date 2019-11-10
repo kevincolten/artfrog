@@ -272,7 +272,13 @@
           <div class="fieldWrap">
             <label for="callOkForEmergency">Ok to Call for Emergency?</label>
             <div class="checkboxContainer">
-              <input type="checkbox" name="callOkForEmergency" value="Yes" />
+              <input
+                type="checkbox"
+                name="callOkForEmergency"
+                value="Yes"
+                title="Select One Checkbox"
+              />
+
               <span>Yes</span>
               <input
                 type="checkbox"
@@ -298,13 +304,18 @@
               <input
                 type="checkbox"
                 id="photoWavier"
+                class="photoCheck"
                 name="photoWaiver"
                 value="Yes"
+                title="Select One Checkbox"
               />
               <span>Yes</span>
-              <input type="checkbox" name="photoWaiver" value="No" /><span>
-                No</span
-              >
+              <input
+                type="checkbox"
+                name="photoWaiver"
+                value="No"
+                class="photoCheck"
+              /><span> No</span>
             </div>
           </div>
         </fieldset>
