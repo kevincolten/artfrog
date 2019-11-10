@@ -73,13 +73,13 @@ form.addEventListener("submit", e => {
       makeError(inputListField, errMsg);
     }
 
-    emptyCheckBoxes(inputListField)
+    // emptyCheckBoxes(inputListField);
     // For Empty Checkboxes
-    // if (emptyCheckBoxes(inputListField)) {
-    //   const errMsg = `Error: ${inputListField.title}`;
-    //   console.log("hi");
-    //   makeError(inputListField, errMsg);
-    // }
+    if (emptyCheckBoxes(inputListField)) {
+      const errMsg = `Error: ${inputListField.title}`;
+      console.log("hi");
+      makeError(inputListField, errMsg);
+    }
   }
 
   // Set Focuspoint on First Error field
@@ -171,21 +171,21 @@ let detectPhoneError = inputListField => {
 };
 
 let emptyCheckBoxes = inputListField => {
+  let checkBoxes = inputListField;
   let emergencyBox = document.querySelectorAll("input[type=checkbox]");
-  let photoCheck = inputListField.classList.contains("photoCheck");
+  let photoCheck = document.getElementsByClassName("photoCheck");
 
-  console.log('[type=checkbox] check:', emergencyBox)
-  console.log('class.contains photoCheck: ' , photoCheck)
+  // console.log("[type=checkbox] check:", emergencyBox);
+  // console.log("photoCheck Elements", photoCheck);
+
   if (
-    inputListField.type === "checkbox" &&
-    inputListField.name === 'photoWaiver' &&
-    emergencyBox[0] === emergencyBox[1]
+    checkBoxes.checked
   ) {
-    return true;
+    const errMsg = 'test'
+    // console.log('hi');
+    makeError(inputListField, errMsg)
   }
 };
-
-
 
 // Make the error show under the fields.
 let makeError = (inputListField, errMsg) => {
