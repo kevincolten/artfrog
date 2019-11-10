@@ -91,7 +91,9 @@
           </div>
 
           <div class="fieldWrap">
-            <label for="studentDOB">* Student Date Of Birth: (mm/dd/yyyy)</label>
+            <label for="studentDOB"
+              >* Student Date Of Birth: (mm/dd/yyyy)</label
+            >
             <input
               id="studentDOB"
               class="validate"
@@ -180,6 +182,10 @@
               autocomplete="postal-code"
             />
           </div>
+        </fieldset>
+
+        <fieldset class="fSet">
+          <legend class="legendTitle">Emergency Info</legend>
 
           <div class="fieldwrap">
             <label for="emergencyPickupFirstName"
@@ -217,7 +223,7 @@
               id="emergencyPickupPhone"
               class="validate phone"
               type="text"
-              name="emergencyPickupPhone"
+              name="phone"
               title="Emergency / Pickup Phone"
               aria-required="true"
             />
@@ -256,7 +262,7 @@
               id="physicianPhone"
               class="noRequire"
               type="text"
-              name="physicianPhone"
+              name="phone"
               title="Physician Phone"
               aria-required="false"
               autocomplete="tel"
@@ -275,12 +281,26 @@
               /><span> No</span>
             </div>
           </div>
+        </fieldset>
+
+        <fieldset class="fSet">
+          <legend class="legendTitle">Photo Waiver</legend>
 
           <div class="fieldWrap">
-            <p>Use of Photo Waiver Copy</p>
+            <p>
+              I hereby grant permission to ArtFrog to use photographs and/or
+              video of me taken during ArtFrog classes and events in
+              publications, news releases, online, and in other communications
+              related to the mission of ArtFrog.
+            </p>
             <label for="photoWaiver">Ok to use photos?</label>
             <div class="checkboxContainer">
-              <input type="checkbox" name="photoWaiver" value="Yes" />
+              <input
+                type="checkbox"
+                id="photoWavier"
+                name="photoWaiver"
+                value="Yes"
+              />
               <span>Yes</span>
               <input type="checkbox" name="photoWaiver" value="No" /><span>
                 No</span
@@ -288,6 +308,7 @@
             </div>
           </div>
         </fieldset>
+
         <div class="buttonDiv">
           <button type="submit" form="form" value="Submit">Submit</button>
         </div>
